@@ -1,6 +1,7 @@
 package com.pedrosouza.springLearning.entities;
 import jakarta.persistence.*;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,8 +13,13 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Name cannot be blank.")
     private String name;
+
+    @NotBlank(message = "E-mail cannot be blank.")
     private String email;
+
     private String phone;
     private String password;
 
